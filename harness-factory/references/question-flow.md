@@ -20,7 +20,7 @@ Use when the user has pre-fixed one or more layer choices.
 
 1. Confirm the fixed layers and any explicitly excluded layers.
 2. Match against existing recipes under
-   `harness-stack/assets/templates/recipes/`.
+   `harness-factory/assets/templates/recipes/`.
 3. If a recipe matches, read its `Compatible Scenarios`. For each scenario
    axis (scale / type / horizon / governance):
    - if the recipe's Compatible Scenarios fix the axis to a single value,

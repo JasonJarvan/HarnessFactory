@@ -5,9 +5,9 @@
 - Repository:
 - Effective From:
 - Source Template:
-  - `harness-stack/assets/templates/longterm/solo.md`
+  - `harness-factory/assets/templates/longterm/solo.md`
 - Recipe Reference:
-  - pick from `harness-stack/assets/templates/recipes/`; default solo combo is
+  - pick from `harness-factory/assets/templates/recipes/`; default solo combo is
     `superpowers` when short-lived, `superpowers-repomem` when long-lived
 - Last Updated Because:
 

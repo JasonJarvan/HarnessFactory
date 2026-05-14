@@ -1,9 +1,9 @@
 ---
-name: harness-stack
-description: Choose and generate long-term and temporary workflow contract documents for a repository using the HarnessStack model. Use when Codex needs to decide which workflow layers to activate for a project or task, create `docs/HarnessStack/longterm.md`, create `docs/HarnessStack/temporary-<task>.md`, or reconcile task workflows against a repository's long-term baseline.
+name: harness-factory
+description: Choose and generate long-term and temporary workflow contract documents for a repository using the HarnessFactory model that generates HarnessStacks. Use when Codex needs to decide which workflow layers to activate for a project or task, create `docs/HarnessStack/longterm.md`, create `docs/HarnessStack/temporary-<task>.md`, or reconcile task workflows against a repository's long-term baseline.
 ---
 
-# Harness Stack
+# Harness Factory
 
 ## Overview
 

@@ -9,7 +9,7 @@
 - Related Long-Term Baseline:
   - `docs/HarnessStack/longterm.md`
 - Source Template:
-  - `harness-stack/assets/templates/temporary/vague.md`
+  - `harness-factory/assets/templates/temporary/vague.md`
 
 ## Current Task Assessment
 

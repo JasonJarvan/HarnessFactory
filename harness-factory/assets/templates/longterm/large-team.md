@@ -5,9 +5,9 @@
 - Repository:
 - Effective From:
 - Source Template:
-  - `harness-stack/assets/templates/longterm/large-team.md`
+  - `harness-factory/assets/templates/longterm/large-team.md`
 - Recipe Reference:
-  - pick a large-team recipe under `harness-stack/assets/templates/recipes/`;
+  - pick a large-team recipe under `harness-factory/assets/templates/recipes/`;
     a Primary Workflow framework (BMAD or GSD) MUST be active
 - Last Updated Because:
 

@@ -5,12 +5,12 @@
 - Repository:
 - Effective From:
 - Source Template:
-  - `harness-stack/assets/templates/longterm/small-team.md`
+  - `harness-factory/assets/templates/longterm/small-team.md`
 - Recipe Reference:
   - default small-team combo:
-    `harness-stack/assets/templates/recipes/openspec-superpowers-repomem-ecc.md`
+    `harness-factory/assets/templates/recipes/openspec-superpowers-repomem-ecc.md`
   - leaner variant without ECC:
-    `harness-stack/assets/templates/recipes/openspec-superpowers-repomem.md`
+    `harness-factory/assets/templates/recipes/openspec-superpowers-repomem.md`
 - Last Updated Because:
 
 ## Current Long-Term Assessment
