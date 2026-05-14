@@ -6,15 +6,17 @@ last_reviewed_at: 2026-05-14
 
 ## 当前定位
 
-当前仓库仍是工作流研究与内容聚合仓库，不是实际开发仓库的工作根目录。
+当前仓库是 `HarnessFactory` —— 多工作流契约体系的**工厂仓库**，按用户引导
+为每个目标仓库产出一份 `HarnessStack`（分层的 harness 配置）。仓库本身不
+是任何具体业务仓库的工作根目录。
 
-当前已经确认的新方向：
+当前已确认：
 
-- 这套多工作流契约体系的仓库名采用 `HarnessFactory`；每次产出物称为 `a HarnessStack`
-- 方法仓库的主要顶层目录采用 `docs/` 与 `harness-factory/`
-- “可写入仓库的契约结果”第一阶段采用纯 Markdown
-- 如果后续发现 agent 读取稳定性不足，再升级为 `Markdown + 极简机器可读清单文件`
-- 目标开发仓库中的 `HarnessStack/` 目录只保存当前激活结果
+- 仓库名 `HarnessFactory`，产出物名 `a HarnessStack`（每次产出 = 一份 HarnessStack）
+- 方法仓库的主要顶层目录采用 `docs/`、`harness-factory/`、`output/`
+- 产出物落到 `./output/{YYYY-MM-DD-HHmm}-{scale}-{horizon}/HarnessStack/`
+- 目标开发仓库中的 `docs/HarnessStack/` 目录只保存当前激活结果
+- contractor 第一阶段采用纯 Markdown；若 agent 读取稳定性不足，再升级为 `Markdown + 极简机器可读清单`
 
 ## v0.2 目标
 
@@ -35,19 +37,24 @@ last_reviewed_at: 2026-05-14
 
 ## v0.3 目标
 
-- 将 contractor 体系转为可直接嵌入目标开发仓库的文档基线
-- 让 skill 能基于仓库现状判断是否需要替换长期 contractor
-- 让临时 contractor 明确描述如何嵌入当前长期 contractor
-- 将根目录 `README.md` 改为正式 GitHub 首页说明
+- 完成 `HarnessStack` → `HarnessFactory` 仓库改名
+- 完成 `harness-stack/` → `harness-factory/` 工厂源目录改名
+- 引入产物结构 `./output/{run}/HarnessStack/`，固化目录与文件契约
+- 引入产物顶层 README（AI 蒸馏入口），定义"压缩 Pipeline 不可成为权威"等防漂移约束
+- `_kit-reference/` → `_reference/`，配套术语统一
+- 清理 v0.2 之前的过期 examples 与 handoff 文档
+- 在 RepoMem 中正式引入"调研层 / 推断层"工厂迭代分层概念
+- 同步用户 auto-memory
 
 ## v0.3 待办
 
-- 验证纯 Markdown contractor 对 agent 的可读性是否足够稳定
-- 如有必要，设计极简机器可读激活清单
-- 验证 `RepoMem + contractor` 的长期协作方式
+- 在真实目标仓库中跑一次产出流程，验证 `./output/<run>/HarnessStack/` 直接 copy 到 `docs/HarnessStack/` 可用
+- 验证压缩 Pipeline 与 `longterm.md § Pipeline` 由同一 recipe source 渲染（不漂移）
+- 验证 AI 在读完顶层 README 之后能正确蒸馏出 CLAUDE.md 内容
+- 评估"调研层"是否需要专门 skill（v0.4 题）
 
 ## 未来考虑
 
-- 副标题与 GitHub 首页定位文案
-- contractor 的英文实用文档版
-- contractor 输出与真实开发仓库的激活方式
+- 调研层的周期性 agent 化（v0.4+）
+- 产出物的多人协作版本（多 stack 共存仓库的策略）
+- contractor 输出的英文实用文档版
