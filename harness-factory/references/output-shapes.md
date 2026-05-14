@@ -4,7 +4,54 @@
 
 Use this reference to keep outputs consistent after the question flow is complete.
 
+## Output Destination
+
+Every factory run emits one bundle under `./output/`. The bundle's inner
+directory is named `HarnessStack/` so it can be copied directly to
+`<target-repo>/docs/HarnessStack/` without renaming.
+
+```
+./output/{YYYY-MM-DD-HHmm}-{scale}-{horizon}/HarnessStack/
+├── README.md                    # AI distillation index (rendered from output-readme-template.md)
+├── longterm.md                  # core long-term contract
+├── temporary-<task>.md          # task-level patch (when there is a current task)
+└── _reference/
+    ├── README.md                # full human-facing usage manual
+    └── version-plan-skeleton.md # multi-version roadmap skeleton
+```
+
+### Run Directory Naming
+
+- Time precision: `YYYY-MM-DD-HHmm` (minute-level).
+- Situation segment: `{scale}-{horizon}` only.
+  - `scale`: `solo` | `small-team` | `large-team`.
+  - `horizon` (path-abbreviated): `short` | `long`. The canonical
+    questionnaire values are `short-lived` and `long-lived`; the skill maps
+    them to the abbreviated form when constructing the directory name.
+- Examples: `2026-05-14-1530-solo-long`, `2026-05-14-1612-small-team-long`.
+
+### Why `repository type` Is NOT In The Directory Name
+
+Repository type is captured in the contract metadata and acts as a veto
+filter in recipe `Compatible Scenarios`. It does not positively select any
+layer — see `selection-criteria.md § Layer Defaults`. The same
+`(scale, horizon)` with different `type` values produces a byte-identical
+layer activation when the same recipe is chosen. Type stays as a
+questionnaire input (for recipe filtering) but is excluded from the path.
+
+### Recipe Slug
+
+Not part of the path. Recorded inside the bundle in `longterm.md § Recipe
+Reference` and in `README.md § Identity / Active Methods`.
+
 ## Output Modes
+
+> Modes below describe the **logical contracts** that get produced. Their
+> physical files land first under `./output/<run>/HarnessStack/` (see
+> § Output Destination), then are copied to `<target-repo>/docs/HarnessStack/`
+> on deployment. The paths shown below use the target-side form for
+> readability; the factory-side path is the same filename under
+> `./output/<run>/HarnessStack/`.
 
 ### Mode A: Temporary Contract Only
 
