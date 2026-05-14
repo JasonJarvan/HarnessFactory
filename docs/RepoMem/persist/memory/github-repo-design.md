@@ -23,6 +23,8 @@ last_reviewed_at: 2026-05-14
 
 ## Rationale
 
+> 注：以下 Rationale 记录的是 v0.3 前选用 `HarnessStack` 作为方法仓库名时的决策依据。v0.3 起方法仓库名改为 `HarnessFactory`，每次产出物名为 `a HarnessStack`；下面保留对 `HarnessStack` 一词的语义评估作为历史记录。
+
 - 与 `AgentStack` 相比，`HarnessStack` 更贴近当前仓库真正的内容深度：
   - workflow 组合
   - contract 层协调
@@ -36,7 +38,8 @@ last_reviewed_at: 2026-05-14
 
 - `harness` 一词对部分 GitHub 路人有门槛，后续必须用副标题降低理解成本。
 - 如果 README 首屏不清楚解释 “stack of workflows and contracts”，仓库定位会显得过于抽象。
-- 如果方法仓库与目标开发仓库都使用 `HarnessStack` 名称，但不区分“模板源”和“激活结果”，读者和 agent 都会混淆。
+- 如果方法仓库与目标开发仓库都使用 `HarnessStack` 名称，但不区分”模板源”和”激活结果”，读者和 agent 都会混淆。
+  - 该陷阱在 v0.3 后已在仓库层面解决：方法仓库为 `HarnessFactory`，目标仓库激活目录仍为 `docs/HarnessStack/`，两端不再同名。
 
 ## Related Memory
 
