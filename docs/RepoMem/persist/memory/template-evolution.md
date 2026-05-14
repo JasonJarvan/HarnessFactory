@@ -1,6 +1,6 @@
 ---
 domain: workflow-system
-last_reviewed_at: 2026-05-07
+last_reviewed_at: 2026-05-14
 ---
 
 # template-evolution
@@ -29,7 +29,7 @@ last_reviewed_at: 2026-05-07
   Primary is `none` but the responsibility is jointly carried by Spec and
   Execution layers.
 - Recipe abstraction introduced under
-  `harness-stack/assets/templates/recipes/`. A recipe captures layer combo +
+  `harness-factory/assets/templates/recipes/`. A recipe captures layer combo +
   inter-layer rules. Final activation = scenario × recipe.
 - Question flow gains a `Layer-First` entry mode for users who pre-fix layer
   choices. Default remains `Scenario-First`.
@@ -89,4 +89,4 @@ last_reviewed_at: 2026-05-07
 - See [workflow-system](./workflow-system.md)
 - See [contractor-output](./contractor-output.md)
 - Worked example: `docs/examples/openspec-superpowers-repomem-longterm_orient.md`
-- First concrete recipe: `harness-stack/assets/templates/recipes/openspec-superpowers-repomem.md`
+- First concrete recipe: `harness-factory/assets/templates/recipes/openspec-superpowers-repomem.md`

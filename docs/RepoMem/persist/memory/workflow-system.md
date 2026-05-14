@@ -1,6 +1,6 @@
 ---
 domain: workflow-system
-last_reviewed_at: 2026-04-03
+last_reviewed_at: 2026-05-14
 ---
 
 # workflow-system 记忆
@@ -26,8 +26,8 @@ last_reviewed_at: 2026-04-03
 - 将 `RepoMem` 加入比较，是为了补齐现有体系普遍缺失的仓库级长期记忆层。
 - 长期 contractor 负责仓库默认基线，临时 contractor 负责任务级 patch。
 - contractor 第一阶段只采用纯 Markdown；如果效果不好，再升级到 Markdown 加极简机器可读清单。
-- 多工作流契约体系的 GitHub 仓库名确定为 `HarnessStack`。
-- 方法仓库的主要顶层目录采用 `docs/` 和 `harness-stack/`。
+- 多工作流契约体系的 GitHub 仓库名确定为 `HarnessFactory`；每次产出物称为 `a HarnessStack`。
+- 方法仓库的主要顶层目录采用 `docs/` 和 `harness-factory/`。
 - 目标开发仓库中的 `HarnessStack/` 目录只保存当前激活结果，而不是备选模板库。
 
 ## Related Architecture

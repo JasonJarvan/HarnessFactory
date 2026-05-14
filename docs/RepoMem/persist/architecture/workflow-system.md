@@ -1,6 +1,6 @@
 ---
 domain: workflow-system
-last_reviewed_at: 2026-04-03
+last_reviewed_at: 2026-05-14
 ---
 
 # workflow-system
@@ -14,7 +14,7 @@ last_reviewed_at: 2026-04-03
 - 对比不同工作流的生命周期覆盖
 - 判断哪些体系是主 workflow，哪些是规格层、执行层、记忆层、harness 层
 - 为不同项目场景生成最小数量、最合适的 workflow contractor
-- 为 `harness-stack/` 目录定义长期 contractor、临时 contractor 与 skill 内容的结构边界
+- 为 `harness-factory/` 目录定义长期 contractor、临时 contractor 与 skill 内容的结构边界
 - 为目标开发仓库中的 `HarnessStack/` 目录定义激活结果文档边界
 
 ## Key Structures Or Flows
@@ -22,7 +22,7 @@ last_reviewed_at: 2026-04-03
 - 先研究 `BMAD`、`gstack`、`GSD`、`OpenSpec`、`Superpowers`、`everythingclaudecode`
 - 再把 `RepoMem` 加入为仓库记忆体层
 - 最终基于场景与复杂度组合出 contractor
-- 方法仓库中的 contractor 模板与 skill 内容放在 `harness-stack/`
+- 方法仓库中的 contractor 模板与 skill 内容放在 `harness-factory/`
 - 目标开发仓库中的 `HarnessStack/` 只保存当前激活结果
 - RepoMem 长期层负责保存 contractor 设计决策、版本计划和 GitHub 仓库定位
 

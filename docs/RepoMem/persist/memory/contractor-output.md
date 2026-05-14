@@ -1,6 +1,6 @@
 ---
 domain: workflow-system
-last_reviewed_at: 2026-04-04
+last_reviewed_at: 2026-05-14
 ---
 
 # contractor-output
@@ -14,7 +14,7 @@ last_reviewed_at: 2026-04-04
 
 ## Decisions
 
-- 在方法仓库 `HarnessStack` 中，模板与 skill 内容统一放在 `harness-stack/`。
+- 在方法仓库 `HarnessFactory` 中，模板与 skill 内容统一放在 `harness-factory/`。
 - 在目标开发仓库中，`HarnessStack/` 目录只用于保存当前激活结果。
 - 当前至少区分三类文档：
   - 长期 contractor 备选文档

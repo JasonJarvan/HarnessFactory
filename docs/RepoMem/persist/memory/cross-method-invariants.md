@@ -1,6 +1,6 @@
 ---
 domain: harness-stack-execution-policy
-last_reviewed_at: 2026-05-13
+last_reviewed_at: 2026-05-14
 ---
 
 # cross-method-invariants
@@ -48,7 +48,7 @@ last_reviewed_at: 2026-05-13
   57 行教学版语境强，易被误读为单 kit 局部约束。v0.2 重命名为
   `Cross-Method Invariants` 以提示其跨 recipe 性质；旧名称在历史
   示例中仍保留，避免破坏 git history 索引。
-- 该规则不约束方法仓库自身（HarnessStack），只约束目标开发仓库；
+- 该规则不约束方法仓库自身（HarnessFactory），只约束目标开发仓库；
   在方法仓库里讨论 v0.2 自身改动时不必触发去重检查。
 - "不得重复"指内容层去重，不是路径层禁止——三处文件可以同时存在，
   也可以互相 link，只是各自承载的语义段不重叠。
@@ -56,7 +56,7 @@ last_reviewed_at: 2026-05-13
 ## Related
 
 - 工厂源文件：
-  - `harness-stack/assets/templates/longterm-template.md` § Cross-Method Invariants
+  - `harness-factory/assets/templates/longterm-template.md` § Cross-Method Invariants
 - 相邻记忆：
   - [execution-policy](./execution-policy.md)
   - [template-evolution](./template-evolution.md)

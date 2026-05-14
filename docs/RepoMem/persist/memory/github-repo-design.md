@@ -1,6 +1,6 @@
 ---
 domain: workflow-system
-last_reviewed_at: 2026-04-04
+last_reviewed_at: 2026-05-14
 ---
 
 # github-repo-design
@@ -13,12 +13,12 @@ last_reviewed_at: 2026-04-04
 
 ## Decisions
 
-- 当前这套多工作流契约体系的 GitHub 仓库名确定为 `HarnessStack`。
-- `Harness` 用于强调“驾驭、编排、约束、驱动 agent/workflow 的运行方式”。
-- `Stack` 用于强调“这是多层组合体系，而不是单一 workflow 或单一工具”。
+- 当前这套多工作流契约体系的 GitHub 仓库名确定为 `HarnessFactory`；每次产出物称为 `a HarnessStack`。
+- `Harness` 用于强调”驾驭、编排、约束、驱动 agent/workflow 的运行方式”。
+- `Stack` 用于强调”这是多层组合体系，而不是单一 workflow 或单一工具”。
 - 当前阶段不急于确定副标题，避免过早冻结对外表述。
-- 当前方法仓库的主要顶层目录收敛为 `docs/` 与 `harness-stack/`。
-- `harness-stack/` 用于保存模板源、skill 内容与 contractor 方法定义。
+- 当前方法仓库的主要顶层目录收敛为 `docs/` 与 `harness-factory/`。
+- `harness-factory/` 用于保存模板源、skill 内容与 contractor 方法定义。
 - 目标开发仓库中的 `HarnessStack/` 目录只表示当前激活结果，不表示模板源。
 
 ## Rationale

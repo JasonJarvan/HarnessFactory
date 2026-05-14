@@ -1,6 +1,6 @@
 ---
 domain: harness-stack-execution-policy
-last_reviewed_at: 2026-05-13
+last_reviewed_at: 2026-05-14
 ---
 
 # execution-policy
@@ -95,11 +95,11 @@ last_reviewed_at: 2026-05-13
 ## Related
 
 - 工厂源文件：
-  - `harness-stack/assets/templates/recipes/recipe-template.md` § Execution Policy
-  - `harness-stack/assets/templates/longterm-template.md` § Execution Policy
-  - `harness-stack/assets/templates/temporary-template.md` § Skip Bias / Auto-Skip Log / Mechanism Selection
-  - `harness-stack/references/output-shapes.md`
-  - `harness-stack/SKILL.md`
+  - `harness-factory/assets/templates/recipes/recipe-template.md` § Execution Policy
+  - `harness-factory/assets/templates/longterm-template.md` § Execution Policy
+  - `harness-factory/assets/templates/temporary-template.md` § Skip Bias / Auto-Skip Log / Mechanism Selection
+  - `harness-factory/references/output-shapes.md`
+  - `harness-factory/SKILL.md`
 - 相邻记忆：
   - [cross-method-invariants](./cross-method-invariants.md)
   - [template-evolution](./template-evolution.md)

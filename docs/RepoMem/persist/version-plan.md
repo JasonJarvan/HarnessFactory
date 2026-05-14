@@ -1,5 +1,5 @@
 ---
-last_reviewed_at: 2026-04-04
+last_reviewed_at: 2026-05-14
 ---
 
 # 版本计划
@@ -10,19 +10,19 @@ last_reviewed_at: 2026-04-04
 
 当前已经确认的新方向：
 
-- 这套多工作流契约体系的仓库名采用 `HarnessStack`
-- 方法仓库的主要顶层目录采用 `docs/` 与 `harness-stack/`
+- 这套多工作流契约体系的仓库名采用 `HarnessFactory`；每次产出物称为 `a HarnessStack`
+- 方法仓库的主要顶层目录采用 `docs/` 与 `harness-factory/`
 - “可写入仓库的契约结果”第一阶段采用纯 Markdown
 - 如果后续发现 agent 读取稳定性不足，再升级为 `Markdown + 极简机器可读清单文件`
 - 目标开发仓库中的 `HarnessStack/` 目录只保存当前激活结果
 
 ## v0.2 目标
 
-- 固化 `HarnessStack` 的仓库定位
+- 固化 `HarnessFactory` 的仓库定位
 - 将长期 contractor 与临时 contractor 的设计收敛为正式文档模板
 - 在 `README.md` 中加入速查表与判断标准
 - 在 `SKILL.md` 中加入问答式工作流选择逻辑
-- 在 `harness-stack/` 中建立长期 contractor 与临时 contractor 的正式目录结构
+- 在 `harness-factory/` 中建立长期 contractor 与临时 contractor 的正式目录结构
 
 ## v0.2 待办
 
