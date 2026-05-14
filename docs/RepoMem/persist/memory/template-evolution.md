@@ -54,8 +54,7 @@ last_reviewed_at: 2026-05-14
   rules; scenario is authoritative on scale defaults.
 - `Layer-First` ambiguity resolved: skill always asks scale unless the
   recipe's Compatible Scenarios fix the axis to a single value.
-- First single-layer recipe published: `recipes/superpowers.md`. Worked
-  example: `docs/examples/superpowers-only-longterm.md`.
+- First single-layer recipe published: `recipes/superpowers.md`.
 - `Delivery Target Compatibility` section added to recipe template; existing
   recipes updated.
 
@@ -88,5 +87,4 @@ last_reviewed_at: 2026-05-14
 
 - See [workflow-system](./workflow-system.md)
 - See [contractor-output](./contractor-output.md)
-- Worked example: `docs/examples/openspec-superpowers-repomem-longterm_orient.md`
 - First concrete recipe: `harness-factory/assets/templates/recipes/openspec-superpowers-repomem.md`

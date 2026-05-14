@@ -127,5 +127,3 @@ responsibility.
 - This recipe is the closest published cousin of `assets/templates/longterm/small-team.md`
   with `ECC(medium)` removed. Use this recipe when the team has rejected
   harness-level enhancement and prefers a leaner stack.
-- See `docs/examples/openspec-superpowers-repomem-longterm_orient.md` for a
-  worked end-to-end example showing how this recipe fills a long-term contract.

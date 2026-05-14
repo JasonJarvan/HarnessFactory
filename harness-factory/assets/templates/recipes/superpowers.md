@@ -96,4 +96,3 @@ workflow responsibility for new projects with vague intent.
 - This recipe is the canonical add-only starting point. Typical progression:
   `superpowers` → `openspec-superpowers` → `openspec-superpowers-repomem` →
   further extensions with harness enhancement and primary workflow.
-- See `docs/examples/superpowers-only-longterm.md` for a worked example.

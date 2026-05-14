@@ -34,7 +34,6 @@ HarnessFactory/
 │   ├── HarnessStack/             # this repo's own activated stack (dogfood)
 │   ├── RepoMem/                  # long-term repository memory for the factory itself
 │   ├── CN/                       # Chinese mirror of the factory surface
-│   ├── examples/                 # worked examples referenced by recipes
 │   ├── superpowers/specs+plans/  # v0.3 design + implementation plan
 │   └── analysis-lifecycle-workflow-comparison.zh-CN.md   # Research-Layer artifact
 └── output/                       # produced HarnessStack bundles, one per run
