@@ -113,6 +113,43 @@ Use these to increase or decrease process intensity.
 - `RC` or `GA`
   - require strongest verification, completion, and guardrail intensity
 
+## Scenario × Recipe Composition
+
+Final long-term contract = scenario × recipe. The composition is `union`, not
+override (per the add-only principle).
+
+### Authority By Field
+
+- `Document Meta`: filled at generation time by skill
+- `Current Long-Term Assessment` (scale / type / horizon / governance):
+  authoritative source = scenario
+- `Current Active Long-Term Baseline` (per-layer Default enabled / Default
+  inactive / Upgrade trigger / Emergent Ownership): authoritative source =
+  recipe; scenario contributes scale-level constraints when recipe leaves a
+  layer unspecified
+- `Pipeline`, `Cross-Layer Conflicts`, `Verification Topology`, `Merge Gates`,
+  `Suitability Envelope`: authoritative source = recipe (copy verbatim)
+- `Temporary Contractor Boundary Rules`: union of scenario rules and recipe
+  rules; on overlap, the stricter rule wins
+- `Full Rewrite Conditions`: union of scenario rules and recipe rules
+
+### Add-Only Constraint On Composition
+
+- Composition never removes a layer that the recipe declares Active.
+- Composition never removes an `Upgrade trigger` from any source.
+- Composition never weakens an invariant from `Pipeline`, `Merge Gates`, or
+  `Verification Topology`.
+
+### When Recipe And Scenario Conflict
+
+- If scenario and recipe disagree on whether a layer is Active, recipe wins
+  and the conflict MUST be reported to the user. This usually signals that
+  the recipe is incompatible with the scenario and a different recipe should
+  be picked.
+- If scenario implies a Primary framework but recipe leaves Primary as
+  Emergent, recipe wins; record the scenario's expectation in the contract's
+  `Upgrade trigger` so future progression remains explicit.
+
 ## Rewrite Conditions For Long-Term Baseline
 
 Update `docs/HarnessStack/longterm.md` only when one or more of these are true:

@@ -6,6 +6,9 @@
 - Effective From:
 - Source Template:
   - `harness-stack/assets/templates/longterm/solo.md`
+- Recipe Reference:
+  - pick from `harness-stack/assets/templates/recipes/`; default solo combo is
+    `superpowers` when short-lived, `superpowers-repomem` when long-lived
 - Last Updated Because:
 
 ## Current Long-Term Assessment
@@ -25,7 +28,11 @@
 
 - Default enabled:
   - none by default
-- Default disabled:
+- Emergent Ownership:
+  - Superpowers brainstorming and writing-plans carry primary workflow
+    responsibility for solo work. If OpenSpec is added per task, the change
+    cycle joins this responsibility.
+- Default inactive:
   - `BMAD`
   - `gstack`
   - `GSD`
@@ -37,7 +44,7 @@
 
 - Default enabled:
   - none by default
-- Default disabled:
+- Default inactive:
   - `OpenSpec`
 - Upgrade trigger:
   - requirements need explicit change boundaries
@@ -48,7 +55,7 @@
 
 - Default enabled:
   - `Superpowers`
-- Default disabled:
+- Default inactive:
   - none by default
 - Upgrade trigger:
   - increase verification and review intensity when risk rises
@@ -57,7 +64,7 @@
 
 - Default enabled:
   - `RepoMem` when repository is long-lived
-- Default disabled:
+- Default inactive:
   - `RepoMem` when repository is short-lived and disposable
 - Upgrade trigger:
   - repository knowledge starts accumulating across tasks
@@ -67,10 +74,45 @@
 
 - Default enabled:
   - `ECC(light)` when memory, hooks, or verification loops are useful
-- Default disabled:
+- Default inactive:
   - `ECC`
 - Upgrade trigger:
   - agent context quality, safety, or repeatability becomes a recurring problem
+
+## Pipeline
+
+- Pull from the recipe chosen via `Recipe Reference`. Solo with no recipe
+  reference defaults to a Superpowers-driven sequence: brainstorming →
+  writing-plans → using-git-worktrees → executing-plans / TDD →
+  verification-before-completion → requesting-code-review →
+  finishing-a-development-branch.
+
+## Cross-Layer Conflicts
+
+- N/A in the default solo recipe (single-layer execution).
+- If a recipe adds OpenSpec or RepoMem, pull conflicts from that recipe.
+
+## Verification Topology
+
+- Superpowers.verification-before-completion is the single verification entry
+  by default. If OpenSpec is added, OpenSpec.verify runs alongside.
+
+## Merge Gates
+
+- Default solo has no merge gate. If RepoMem is added, RepoMem.merge becomes
+  HITL after task completion.
+
+## Suitability Envelope
+
+### Fits
+
+- one active contributor
+- mixed short-lived and long-lived work
+
+### Does Not Fit
+
+- multi-contributor coordination
+- strict cross-team governance requirements
 
 ## Temporary Contractor Boundary Rules
 

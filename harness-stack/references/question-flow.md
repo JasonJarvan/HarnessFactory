@@ -4,6 +4,34 @@
 
 Use this reference to run a compact question flow before generating contractor documents.
 
+## Entry Modes
+
+Pick the entry mode before asking any questions.
+
+### Scenario-First (default)
+
+Use when the user has not pre-fixed any layer choices. Ask collaboration scale,
+repository type, project horizon, and governance, then derive layers from
+`selection-criteria.md` defaults and pick a recipe.
+
+### Layer-First
+
+Use when the user has pre-fixed one or more layer choices.
+
+1. Confirm the fixed layers and any explicitly excluded layers.
+2. Match against existing recipes under
+   `harness-stack/assets/templates/recipes/`.
+3. If a recipe matches, read its `Compatible Scenarios`. For each scenario
+   axis (scale / type / horizon / governance):
+   - if the recipe's Compatible Scenarios fix the axis to a single value,
+     adopt that value silently
+   - if the axis still has multiple compatible values, ask the user
+4. Always ask `Delivery Target` and `Risk Level` for the current task — these
+   are never implied by layer choices.
+5. If no recipe matches, propose creating a new recipe before generating the
+   long-term contract. Do not silently invent inter-layer rules in the
+   contract itself.
+
 ## Long-Term Questions
 
 Ask these only when:
@@ -55,7 +83,9 @@ Do this when:
 For long-term output:
 
 - produce a complete `docs/HarnessStack/longterm.md`
-- include source template and current active baseline
+- include source template, recipe reference, and current active baseline
+- copy the chosen recipe's Pipeline, Cross-Layer Conflicts, Verification
+  Topology, Merge Gates, and Suitability Envelope into the long-term contract
 
 For temporary output:
 

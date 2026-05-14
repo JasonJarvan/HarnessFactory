@@ -6,6 +6,9 @@
 - Effective From:
 - Source Template:
   - `harness-stack/assets/templates/longterm/large-team.md`
+- Recipe Reference:
+  - pick a large-team recipe under `harness-stack/assets/templates/recipes/`;
+    a Primary Workflow framework (BMAD or GSD) MUST be active
 - Last Updated Because:
 
 ## Current Long-Term Assessment
@@ -25,7 +28,9 @@
 
 - Default enabled:
   - `GSD` or `BMAD`
-- Default disabled:
+- Emergent Ownership:
+  - Not applicable — a Primary framework is mandatory at this scale.
+- Default inactive:
   - none by default
 - Upgrade trigger:
   - coordination overhead requires stronger roadmap and planning structure
@@ -34,7 +39,7 @@
 
 - Default enabled:
   - `OpenSpec`
-- Default disabled:
+- Default inactive:
   - none by default
 - Upgrade trigger:
   - require stricter enforcement when multiple concurrent changes interact
@@ -43,7 +48,7 @@
 
 - Default enabled:
   - `Superpowers`
-- Default disabled:
+- Default inactive:
   - none by default
 - Upgrade trigger:
   - enforce stronger plan execution, review, and verification across contributors
@@ -52,7 +57,7 @@
 
 - Default enabled:
   - `RepoMem`
-- Default disabled:
+- Default inactive:
   - none by default
 - Upgrade trigger:
   - expand architecture and memory decomposition as repository domains multiply
@@ -61,10 +66,45 @@
 
 - Default enabled:
   - `ECC(strong)`
-- Default disabled:
+- Default inactive:
   - none by default
 - Upgrade trigger:
   - increase safety, eval, and orchestration rigor for high-stakes delivery
+
+## Pipeline
+
+- Pull from the chosen large-team recipe. The Primary framework drives the
+  outer loop; OpenSpec/Superpowers/RepoMem run within each change.
+
+## Cross-Layer Conflicts
+
+- Pull from the chosen recipe. Notable additions at this scale: Primary
+  framework planning vs OpenSpec proposal; Primary review gates vs Superpowers
+  requesting-code-review.
+
+## Verification Topology
+
+- Primary framework's release-gate verification runs at the top.
+- OpenSpec.verify and Superpowers.verification-before-completion run per
+  change.
+
+## Merge Gates
+
+- RepoMem.merge runs after OpenSpec.archive. RepoMem.merge is HITL.
+- Primary framework's release gates may add additional HITL points.
+
+## Suitability Envelope
+
+### Fits
+
+- 6+ contributors
+- multi-quarter roadmap
+- strong governance and audit needs
+
+### Does Not Fit
+
+- short-lived prototypes
+- single-contributor work
 
 ## Temporary Contractor Boundary Rules
 

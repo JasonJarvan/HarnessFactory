@@ -9,6 +9,18 @@ Use this questionnaire to collect only the information needed to generate or upd
 
 Ask the minimum number of questions needed to determine the correct output.
 
+## Q0. Entry Mode
+
+- Has the user already pre-fixed one or more layer choices (Primary, Spec,
+  Execution, Memory, Harness)?
+
+If yes, switch to Layer-First flow per
+`references/question-flow.md`. List the fixed layers and try to match an
+existing recipe under `assets/templates/recipes/` before asking further
+questions.
+
+If no, continue with Scenario-First flow below.
+
 ## Long-Term Questions
 
 Ask these only when:
