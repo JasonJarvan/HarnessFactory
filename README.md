@@ -1,39 +1,93 @@
-# harness-stack
+# HarnessFactory
 
-这个目录用于存放 `HarnessStack` 的方法源内容，包括：
+`HarnessFactory` is a methodology repository that produces a **HarnessStack** —
+a layered workflow-contract bundle — tailored to a target development
+repository's situation. Each factory run consumes questionnaire answers and
+emits a deployable bundle under `./output/<run>/HarnessStack/`. The target
+repository copies that bundle into its own `docs/HarnessStack/` and operates
+from it. Experience accumulated while running the contract flows back into
+this factory as iteration input.
 
-- contractor 模板与结构约定
-- skill 包内容
-- 未来用于嵌入目标开发仓库的模板资源
+## Two-Layer Naming
 
-当前规则：
+| Role | Name |
+|---|---|
+| Generator (this repo) | `HarnessFactory` |
+| Single produced bundle | `a HarnessStack` |
+| Factory-side output path | `./output/{YYYY-MM-DD-HHmm}-{scale}-{horizon}/HarnessStack/` |
+| Target-side activation path | `<target-repo>/docs/HarnessStack/` |
 
-- 当前 `HarnessStack` 仓库是方法仓库，不是目标开发仓库
-- 因此这里保存的是模板源与方法定义，而不是某个业务仓库的激活结果
-- 目标开发仓库中的 `HarnessStack/` 目录只应保存当前激活结果，不应混入模板库
+The inner directory name is `HarnessStack/` on both sides so the bundle can
+be copied directly without renaming.
 
-当前阶段：
+## Top-Level Layout
 
-- 已确定 contractor 第一阶段使用纯 Markdown
-- 已确定长期 contractor 与临时 contractor 分层
-- 已确定目标开发仓库中的 `HarnessStack/` 是激活结果目录
-- 已提供 `longterm.md` 与 `temporary-<task>.md` 的标准模板
+```
+HarnessFactory/
+├── README.md                     # this file
+├── harness-factory/              # factory source (skill + templates + references)
+│   ├── SKILL.md
+│   ├── agents/
+│   ├── assets/templates/
+│   └── references/
+├── docs/
+│   ├── HarnessStack/             # this repo's own activated stack (dogfood)
+│   ├── RepoMem/                  # long-term repository memory for the factory itself
+│   ├── CN/                       # Chinese mirror of the factory surface
+│   ├── examples/                 # worked examples referenced by recipes
+│   ├── superpowers/specs+plans/  # v0.3 design + implementation plan
+│   └── analysis-lifecycle-workflow-comparison.zh-CN.md   # Research-Layer artifact
+└── output/                       # produced HarnessStack bundles, one per run
+```
 
-当前模板：
+## What A Produced HarnessStack Contains
 
-- [longterm-template.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/longterm-template.md)
-- [temporary-template.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/temporary-template.md)
-- [longterm/solo.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/longterm/solo.md)
-- [longterm/small-team.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/longterm/small-team.md)
-- [longterm/large-team.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/longterm/large-team.md)
-- [temporary/clear.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/temporary/clear.md)
-- [temporary/partially-clear.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/temporary/partially-clear.md)
-- [temporary/vague.md](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/harness-stack/assets/templates/temporary/vague.md)
+```
+./output/{run}/HarnessStack/
+├── README.md                     # AI distillation index (~60–80 lines)
+├── longterm.md                   # authoritative long-term contract
+├── temporary-<task>.md           # task-level patch (when applicable)
+└── _reference/
+    ├── README.md                 # full human-facing usage manual
+    └── version-plan-skeleton.md  # multi-version roadmap skeleton
+```
 
-相关长期记忆：
+The top-level `README.md` inside the bundle is the **one-time AI distillation
+source**: the target repo's AI reads it once and condenses sections 1–4 into
+its `CLAUDE.md`. The authoritative full contract is `longterm.md`; the
+human-facing manual lives in `_reference/`.
 
-- [workflow-system architecture](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/docs/RepoMem/persist/architecture/workflow-system.md)
-- [workflow-system memory](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/docs/RepoMem/persist/memory/workflow-system.md)
-- [github-repo-design](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/docs/RepoMem/persist/memory/github-repo-design.md)
-- [contractor-output](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/docs/RepoMem/persist/memory/contractor-output.md)
-- [analysis](/home/shenzhou/Codes/CodingAgentHarnessSystem/HarnessStack/docs/analysis-lifecycle-workflow-comparison.zh-CN.md)
+## Quick Start (operating the factory)
+
+1. Read `harness-factory/SKILL.md` to understand the question flow and output
+   shapes.
+2. Walk a target repository through the questionnaire
+   (`harness-factory/references/questionnaire.md`).
+3. Run the factory to produce
+   `./output/<run>/HarnessStack/`.
+4. Copy that directory to the target repository as `docs/HarnessStack/`.
+
+## Quick Start (operating a produced HarnessStack)
+
+1. Open `docs/HarnessStack/README.md` (the distillation index).
+2. Condense sections 1–4 into your `CLAUDE.md`.
+3. Use `docs/HarnessStack/longterm.md` for full details when needed.
+4. For Day-One Init steps and per-task iteration, see
+   `docs/HarnessStack/_reference/README.md`.
+
+## Iteration Layers (R3)
+
+`HarnessFactory` internally distinguishes two iteration layers (see
+`docs/RepoMem/persist/memory/factory-iteration-layers.md`):
+
+- **Research Layer (调研层)** — maintains per-method definitions and
+  cross-method comparisons. Current artifact:
+  `docs/analysis-lifecycle-workflow-comparison.zh-CN.md`.
+- **Inference Layer (推断层)** — generates a HarnessStack from user
+  guidance. Implemented today by `harness-factory/SKILL.md`.
+
+## Status
+
+- Current version: v0.3 — HarnessFactory rename & output redesign
+- Design spec: `docs/superpowers/specs/2026-05-14-harness-factory-rename-and-output-redesign-design.md`
+- Implementation plan: `docs/superpowers/plans/2026-05-14-harness-factory-rename-implementation.md`
