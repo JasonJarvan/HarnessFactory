@@ -36,11 +36,18 @@ The output is a long-term repository baseline and, when needed, a task-specific 
    bake inter-layer rules directly into the long-term contract.
 8. If generating a long-term contract, fill the template at `assets/templates/longterm-template.md`. Copy Pipeline, Cross-Layer Conflicts, Verification Topology, Merge Gates, Execution Policy, and Suitability Envelope from the chosen recipe.
 9. After filling the long-term template, count rendered lines and decide single-file vs index-plus-hooks per `references/output-shapes.md`. Emit the chosen form.
-10. If generating a temporary contract, fill the template at `assets/templates/temporary-template.md`.
-11. Keep long-term and temporary responsibilities separate:
+10. Render the top-level output README from
+    `assets/templates/output-readme-template.md`, populating Identity,
+    Active Methods, and the Compressed Pipeline from the same recipe used
+    to fill `longterm.md`. The Compressed Pipeline (§3) MUST be derived from
+    the recipe's Pipeline definition in one pass — do not author it
+    independently of `longterm.md § Pipeline`. Place the rendered file at
+    `<output>/HarnessStack/README.md`.
+11. If generating a temporary contract, fill the template at `assets/templates/temporary-template.md`.
+12. Keep long-term and temporary responsibilities separate:
     - long-term: stable baseline, boundaries, rewrite conditions, recipe binding
     - temporary: task assessment, task-level adjustments, final active stack
-12. Write complete active documents, not template pointers or incomplete notes.
+13. Write complete active documents, not template pointers or incomplete notes.
 
 ## Output Rules
 
@@ -79,6 +86,7 @@ The output is a long-term repository baseline and, when needed, a task-specific 
 
 - `longterm-template.md`: Template for repository-level active long-term contract
 - `temporary-template.md`: Template for task-level active temporary contract
+- `output-readme-template.md`: Template for the top-level AI-distillation README placed at `<output>/HarnessStack/README.md`
 - `longterm/`: Scenario subtemplates by collaboration scale (`solo`, `small-team`, `large-team`); each encodes scale-level defaults
 - `temporary/`: Scenario subtemplates by requirement clarity (`clear`, `partially-clear`, `vague`)
 - `recipes/`: Layer-combo recipes capturing Pipeline, Cross-Layer Conflicts, Verification Topology, Merge Gates, and Suitability Envelope. Final activation = scenario × recipe.
