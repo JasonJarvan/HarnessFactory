@@ -2,11 +2,11 @@
 
 ## Document Meta
 
-- Repository: HarnessStack
+- Repository: HarnessFactory
 - Effective From: 2026-05-13
 - Source Template: `harness-stack/assets/templates/longterm/solo.md`
 - Recipe Reference: `harness-stack/assets/templates/recipes/superpowers-repomem.md`
-- Last Updated Because: initial long-term contract; solo + long-lived methodology repo needs cross-task memory but no spec layer
+- Last Updated Because: initial long-term contract; solo + long-lived methodology repo needs cross-task memory but no spec layer; renamed repository identity to HarnessFactory per v0.3 redesign (2026-05-14)
 
 ## Current Long-Term Assessment
 
