@@ -52,9 +52,14 @@ last_reviewed_at: 2026-05-14
 - 验证压缩 Pipeline 与 `longterm.md § Pipeline` 由同一 recipe source 渲染（不漂移）
 - 验证 AI 在读完顶层 README 之后能正确蒸馏出 CLAUDE.md 内容
 - 评估"调研层"是否需要专门 skill（v0.4 题）
+- `harness-factory/SKILL.md § Output Rules` 增补一句：长期契约产物总是落在 `output/<run>/HarnessStack/longterm.md`（bundle 形式），与 README 同位；`docs/HarnessStack/` 仅在 dogfood 场景使用（2026-05-14 dogfood 测试中发现 Step 10 仅点名 README，未点名 longterm，落地依据只在 `references/output-shapes.md`）
+- `_reference/README.md` 二选一并落定：补 `assets/templates/reference-readme-template.md` + 在 SKILL.md 加渲染步骤；或者从 `references/output-shapes.md` 的 bundle 图中移走，标为"目标仓库自维护，非工厂产物"
 
 ## 未来考虑
 
 - 调研层的周期性 agent 化（v0.4+）
 - 产出物的多人协作版本（多 stack 共存仓库的策略）
 - contractor 输出的英文实用文档版
+- （v0.4 候选）在 `openspec-superpowers-repomem` recipe 中同时引入**任务级文档分区**与**任务末处置判据**两块新章节——两轴必须同时设计，分区不清楚则无法判处置，处置不清楚则分区只是装饰：
+  - **Task-Level Document Partition**：把 OSR+ECC kit `longterm.md § Task Identifier and Document Boundary` 的"三件套不得互相重复"规则上抬到 recipe Cross-Layer Conflicts，明确 `OpenSpec design.md` / `RepoMem architecture.md` / `RepoMem requirement.md` / writing-plans plan 之间的内容归属
+  - **Task-End Disposition**：给 archive / `RepoMem.merge` / burn 三类处置写出 reviewer 判据表与 HITL 检查清单——把 `RepoMem.merge` 从"排序约束"升级为"带判据的过滤器"，并首次把 "burn" 作为合法且应主动声明的处置（防止默认全部 merge 造成长期记忆膨胀）
