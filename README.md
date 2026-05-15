@@ -14,7 +14,7 @@ this factory as iteration input.
 |---|---|
 | Generator (this repo) | `HarnessFactory` |
 | Single produced bundle | `a HarnessStack` |
-| Factory-side output path | `./output/{YYYY-MM-DD-HHmm}-{scale}-{horizon}/HarnessStack/` |
+| Factory-side output path | `./output/{YYYY-MM-DD-HHmm}-{stack}/HarnessStack/` |
 | Target-side activation path | `<target-repo>/docs/HarnessStack/` |
 
 The inner directory name is `HarnessStack/` on both sides so the bundle can
@@ -46,15 +46,14 @@ HarnessFactory/
 ├── README.md                     # AI distillation index (~60–80 lines)
 ├── longterm.md                   # authoritative long-term contract
 ├── temporary-<task>.md           # task-level patch (when applicable)
-└── _reference/
-    ├── README.md                 # full human-facing usage manual
-    └── version-plan-skeleton.md  # multi-version roadmap skeleton
+└── _toUser/
+    └── README.md                 # full human-facing usage manual
 ```
 
 The top-level `README.md` inside the bundle is the **one-time AI distillation
 source**: the target repo's AI reads it once and condenses sections 1–4 into
 its `CLAUDE.md`. The authoritative full contract is `longterm.md`; the
-human-facing manual lives in `_reference/`.
+human-facing manual lives in `_toUser/`.
 
 ## Quick Start (operating the factory)
 
@@ -72,7 +71,7 @@ human-facing manual lives in `_reference/`.
 2. Condense sections 1–4 into your `CLAUDE.md`.
 3. Use `docs/HarnessStack/longterm.md` for full details when needed.
 4. For Day-One Init steps and per-task iteration, see
-   `docs/HarnessStack/_reference/README.md`.
+   `docs/HarnessStack/_toUser/README.md`.
 
 ## Iteration Layers (R3)
 

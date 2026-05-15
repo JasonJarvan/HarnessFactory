@@ -43,15 +43,31 @@ The output is a long-term repository baseline and, when needed, a task-specific 
     the recipe's Pipeline definition in one pass — do not author it
     independently of `longterm.md § Pipeline`. Place the rendered file at
     `<output>/HarnessStack/README.md`.
-11. If generating a temporary contract, fill the template at `assets/templates/temporary-template.md`.
-12. Keep long-term and temporary responsibilities separate:
+11. Render the human-facing usage manual from
+    `assets/templates/to-user-readme-template.md`. Fill the "What This Stack
+    Activates" and "Per-Task Iteration Loop" sections from the same recipe
+    used to fill `longterm.md` — render the recipe's Pipeline plus Execution
+    Policy into an operator-facing loop addressed to a human reader (not an
+    AI). Day-One Init steps that are scenario-specific (e.g., create
+    `docs/RepoMem/persist/` when RepoMem is active) are filled from the
+    recipe's layer set. Place the rendered file at
+    `<output>/HarnessStack/_toUser/README.md`.
+12. If generating a temporary contract, fill the template at `assets/templates/temporary-template.md`.
+13. Keep long-term and temporary responsibilities separate:
     - long-term: stable baseline, boundaries, rewrite conditions, recipe binding
     - temporary: task assessment, task-level adjustments, final active stack
-13. Write complete active documents, not template pointers or incomplete notes.
+14. Write complete active documents, not template pointers or incomplete notes.
 
 ## Output Rules
 
 - Prefer pure Markdown contractor documents first.
+- Factory-side, the long-term contract always lands at
+  `<output>/HarnessStack/longterm.md` (bundle form), alongside the
+  rendered `README.md` and `_toUser/README.md`. The target-side path
+  `<target-repo>/docs/HarnessStack/longterm.md` only applies after
+  deployment (or in the dogfood case where the factory runs the
+  contract on itself). The bundle is the source of truth at generation
+  time; deployment is a copy step.
 - If the repository already has a long-term contract, update it only when long-term conditions materially change.
 - Otherwise, leave the long-term contract stable and generate only a temporary contract.
 - Record contractor design decisions in RepoMem memory when they affect long-term governance.
@@ -87,6 +103,7 @@ The output is a long-term repository baseline and, when needed, a task-specific 
 - `longterm-template.md`: Template for repository-level active long-term contract
 - `temporary-template.md`: Template for task-level active temporary contract
 - `output-readme-template.md`: Template for the top-level AI-distillation README placed at `<output>/HarnessStack/README.md`
+- `to-user-readme-template.md`: Template for the human-facing usage manual placed at `<output>/HarnessStack/_toUser/README.md`
 - `longterm/`: Scenario subtemplates by collaboration scale (`solo`, `small-team`, `large-team`); each encodes scale-level defaults
 - `temporary/`: Scenario subtemplates by requirement clarity (`clear`, `partially-clear`, `vague`)
 - `recipes/`: Layer-combo recipes capturing Pipeline, Cross-Layer Conflicts, Verification Topology, Merge Gates, and Suitability Envelope. Final activation = scenario × recipe.

@@ -51,7 +51,7 @@ This repository runs HarnessStack at `{scale}` scale, horizon `{horizon}`.
 ## 5. Where To Read More
 
 - Full long-term contract: `./longterm.md`
-- Full usage manual (Day-One Init, per-task iteration, long-term iteration): `./_reference/README.md`
+- Full usage manual (Day-One Init, per-task iteration, long-term iteration): `./_toUser/README.md`
 - Task-level patch (if a task is in progress): `./temporary-<task>.md`
 
 ## 6. For AI Consumers

@@ -11,38 +11,58 @@ directory is named `HarnessStack/` so it can be copied directly to
 `<target-repo>/docs/HarnessStack/` without renaming.
 
 ```
-./output/{YYYY-MM-DD-HHmm}-{scale}-{horizon}/HarnessStack/
+./output/{YYYY-MM-DD-HHmm}-{stack}/HarnessStack/
 ├── README.md                    # AI distillation index (rendered from output-readme-template.md)
 ├── longterm.md                  # core long-term contract
 ├── temporary-<task>.md          # task-level patch (when there is a current task)
-└── _reference/
-    ├── README.md                # full human-facing usage manual
-    └── version-plan-skeleton.md # multi-version roadmap skeleton
+└── _toUser/
+    └── README.md                # full human-facing usage manual (rendered from to-user-readme-template.md)
 ```
+
+### Why version-plan Is NOT In The Bundle
+
+Per v0.3.1 decision: a HarnessStack contract and a RepoMem-style version
+plan are orthogonal layers. Bundling a version-plan skeleton inside the
+HarnessStack output would force target repositories to adopt RepoMem-like
+conventions whether or not they use RepoMem. Target repositories that want
+to track their stack's evolution maintain a version-plan in whatever memory
+area fits them (see the bundle's `_toUser/README.md § Tracking HarnessStack
+Evolution` for placement guidance).
+
+### Why The Directory Is `_toUser/`
+
+The `_` prefix preserves the convention that an underscore-prefixed
+directory is auxiliary, not part of the active contract surface. `toUser`
+names the audience: the human operator of the target repository. This
+contrasts with `README.md` (audience: AI distillation) and `longterm.md`
+(audience: authoritative contract, read by both).
 
 ### Run Directory Naming
 
 - Time precision: `YYYY-MM-DD-HHmm` (minute-level).
-- Situation segment: `{scale}-{horizon}` only.
-  - `scale`: `solo` | `small-team` | `large-team`.
-  - `horizon` (path-abbreviated): `short` | `long`. The canonical
-    questionnaire values are `short-lived` and `long-lived`; the skill maps
-    them to the abbreviated form when constructing the directory name.
-- Examples: `2026-05-14-1530-solo-long`, `2026-05-14-1612-small-team-long`.
+- Stack segment: `{stack}` — the active layer composition, hyphen-joined in
+  layer order (Primary → Spec → Execution → Memory → Harness). Inactive
+  layers are omitted.
+  - Base form equals the recipe slug (e.g., `superpowers-repomem`,
+    `openspec-superpowers-repomem`).
+  - Layer-level strength qualifiers are encoded by replacing the layer name
+    with `<layer><Strength>` in camelCase. Example: a stack using
+    `ECC(medium)` renders as `eccMedium`; `ECC(light)` renders as `eccLight`.
+- Examples:
+  - `2026-05-15-1530-superpowers-repomem`
+  - `2026-05-15-1612-openspec-superpowers-repomem-eccMedium`
 
-### Why `repository type` Is NOT In The Directory Name
+### Why Scale / Horizon / Type Are NOT In The Path
 
-Repository type is captured in the contract metadata and acts as a veto
-filter in recipe `Compatible Scenarios`. It does not positively select any
-layer — see `selection-criteria.md § Layer Defaults`. The same
-`(scale, horizon)` with different `type` values produces a byte-identical
-layer activation when the same recipe is chosen. Type stays as a
-questionnaire input (for recipe filtering) but is excluded from the path.
-
-### Recipe Slug
-
-Not part of the path. Recorded inside the bundle in `longterm.md § Recipe
-Reference` and in `README.md § Identity / Active Methods`.
+Scale and horizon are captured in the contract metadata
+(`longterm.md § Current Long-Term Assessment`) and act as scenario
+constraints. Given a chosen `{stack}`, they do not alter layer activation —
+two runs with the same `{stack}` but different scale/horizon produce
+byte-identical layer activation. Repository type is a recipe veto filter
+and similarly does not positively select layers (see
+`selection-criteria.md § Layer Defaults`). Putting the stack composition
+in the path instead makes each bundle directory immediately
+self-describing: the path tells you what is inside.
 
 ## Output Modes
 

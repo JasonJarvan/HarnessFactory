@@ -14,7 +14,7 @@ last_reviewed_at: 2026-05-14
 
 - 仓库名 `HarnessFactory`，产出物名 `a HarnessStack`（每次产出 = 一份 HarnessStack）
 - 方法仓库的主要顶层目录采用 `docs/`、`harness-factory/`、`output/`
-- 产出物落到 `./output/{YYYY-MM-DD-HHmm}-{scale}-{horizon}/HarnessStack/`
+- 产出物落到 `./output/{YYYY-MM-DD-HHmm}-{stack}/HarnessStack/`（v0.3.1：`{stack}` 编码 active 层组成，如 `superpowers-repomem`、`openspec-superpowers-repomem-eccMedium`）
 - 目标开发仓库中的 `docs/HarnessStack/` 目录只保存当前激活结果
 - contractor 第一阶段采用纯 Markdown；若 agent 读取稳定性不足，再升级为 `Markdown + 极简机器可读清单`
 
@@ -53,7 +53,32 @@ last_reviewed_at: 2026-05-14
 - 验证 AI 在读完顶层 README 之后能正确蒸馏出 CLAUDE.md 内容
 - 评估"调研层"是否需要专门 skill（v0.4 题）
 - `harness-factory/SKILL.md § Output Rules` 增补一句：长期契约产物总是落在 `output/<run>/HarnessStack/longterm.md`（bundle 形式），与 README 同位；`docs/HarnessStack/` 仅在 dogfood 场景使用（2026-05-14 dogfood 测试中发现 Step 10 仅点名 README，未点名 longterm，落地依据只在 `references/output-shapes.md`）
-- `_reference/README.md` 二选一并落定：补 `assets/templates/reference-readme-template.md` + 在 SKILL.md 加渲染步骤；或者从 `references/output-shapes.md` 的 bundle 图中移走，标为"目标仓库自维护，非工厂产物"
+- ~~`_reference/README.md` 二选一并落定~~ → **v0.3.1 已落定**（见下方 v0.3.1 段）
+
+## v0.3.1 目标
+
+- 解决 v0.3 暴露的 `_reference/` 缺口与目录命名问题
+- 推进 dogfood 校验（本仓库直接产出到 `docs/HarnessStack/`）
+
+## v0.3.1 决策与改动
+
+- `_reference/README.md` 落点：**方案 ε + 改名 `_toUser/`**——`_reference/` → `_toUser/`，bundle 只保留 `_toUser/README.md` 一份人读手册；`version-plan-skeleton.md` 不进 bundle，在 `_toUser/README.md § Tracking HarnessStack Evolution` 中建议目标仓库自维护（推荐用 RepoMem skill 落到 `docs/RepoMem/persist/version-plan.md`）
+- 产物路径段：`{scale}-{horizon}` → `{stack}`，编码 active 层组成（如 `superpowers-repomem`、`openspec-superpowers-repomem-eccMedium`）。理由：scale/horizon 已在 contract metadata 里、给定 stack 不影响层激活；新路径自描述
+- 新增模板 `harness-factory/assets/templates/to-user-readme-template.md`
+- `harness-factory/SKILL.md` Workflow 增 Step 11 渲染 `_toUser/README.md`；Resources 列表同步
+- `harness-factory/references/output-shapes.md` 改 bundle 图、改路径定义、改"为什么 X 不进路径"那段（从"type 不进"改为"scale/horizon/type 都不进"）
+- 顶层 `README.md` 同步：bundle 图、Quick Start 指针、Two-Layer Naming 表
+- 不动：`docs/superpowers/specs|plans/2026-05-14-*`（历史时间戳记录）、`docs/CN/`（按指示 freeze 在 v0.2）
+
+## v0.3.1 待办
+
+- dogfood：把本仓库当作目标仓库跑一次产出，写入 `docs/HarnessStack/`
+  - scale=solo / type=platform（其实是 skill，questionnaire 暂无该枚举）/ horizon=long-lived
+  - recipe=`superpowers-repomem`
+  - 产物：更新 `docs/HarnessStack/longterm.md`（type research → platform），新增 `docs/HarnessStack/README.md` 与 `docs/HarnessStack/_toUser/README.md`
+- 验证压缩 Pipeline（顶层 README §3）与 `longterm.md § Pipeline` 同源不漂移
+- 验证 AI 蒸馏：拿顶层 README 蒸馏出 `CLAUDE.md` 草稿，作为后续基准
+- v0.4 候选：questionnaire 是否引入 `skill` / `method` 作为 type 枚举值
 
 ## 未来考虑
 
