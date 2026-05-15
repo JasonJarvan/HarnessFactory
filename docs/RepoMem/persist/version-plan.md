@@ -1,5 +1,5 @@
 ---
-last_reviewed_at: 2026-05-14
+last_reviewed_at: 2026-05-15
 ---
 
 # 版本计划
@@ -72,13 +72,12 @@ last_reviewed_at: 2026-05-14
 
 ## v0.3.1 待办
 
-- dogfood：把本仓库当作目标仓库跑一次产出，写入 `docs/HarnessStack/`
-  - scale=solo / type=platform（其实是 skill，questionnaire 暂无该枚举）/ horizon=long-lived
-  - recipe=`superpowers-repomem`
-  - 产物：更新 `docs/HarnessStack/longterm.md`（type research → platform），新增 `docs/HarnessStack/README.md` 与 `docs/HarnessStack/_toUser/README.md`
-- 验证压缩 Pipeline（顶层 README §3）与 `longterm.md § Pipeline` 同源不漂移
-- 验证 AI 蒸馏：拿顶层 README 蒸馏出 `CLAUDE.md` 草稿，作为后续基准
+- ~~dogfood：把本仓库当作目标仓库跑一次产出，写入 `docs/HarnessStack/`~~ → **done**（见 `memory/harness-factory-v0.3.1-validation.md`；longterm.md type 改 platform、新增 README 与 _toUser/README.md）
+- ~~验证压缩 Pipeline（顶层 README §3）与 `longterm.md § Pipeline` 同源不漂移~~ → **done**（步骤 1-10 全等，第 11 步 prune/split 按"periodic, not per-task"压缩省略，非漂移）
+- ~~验证 AI 蒸馏：拿顶层 README 蒸馏出 `CLAUDE.md` 草稿，作为后续基准~~ → **done**（草稿存于 `memory/harness-factory-v0.3.1-validation.md § AI Distillation`；常规态足够，5 类非常规场景需回查 longterm.md）
+- **未验证**：`{stack}` 路径段（dogfood 不走 output/；需要一次真实 output 运行覆盖 `eccMedium` 等强度后缀场景）
 - v0.4 候选：questionnaire 是否引入 `skill` / `method` 作为 type 枚举值
+- v0.4 候选：模板渲染半自动化（当前 `output-readme-template.md` / `to-user-readme-template.md` 手填 placeholder，无脚本）
 
 ## 未来考虑
 

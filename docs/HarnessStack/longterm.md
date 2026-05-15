@@ -6,12 +6,12 @@
 - Effective From: 2026-05-13
 - Source Template: `harness-factory/assets/templates/longterm/solo.md`
 - Recipe Reference: `harness-factory/assets/templates/recipes/superpowers-repomem.md`
-- Last Updated Because: initial long-term contract; solo + long-lived methodology repo needs cross-task memory but no spec layer; renamed repository identity to HarnessFactory per v0.3 redesign (2026-05-14)
+- Last Updated Because: initial long-term contract; solo + long-lived methodology repo needs cross-task memory but no spec layer; renamed repository identity to HarnessFactory per v0.3 redesign (2026-05-14); v0.3.1 dogfood regeneration — type corrected to `platform` and bundle expanded with README.md (AI distillation) + _toUser/README.md (human manual) per the v0.3.1 bundle shape (2026-05-15)
 
 ## Current Long-Term Assessment
 
 - Collaboration Scale: `solo`
-- Repository Type: `research`
+- Repository Type: `platform` (specifically: a HarnessFactory skill / methodology repository; `skill` is not yet a questionnaire enum value — `platform` is the closest fit; see v0.4 candidate in `docs/RepoMem/persist/version-plan.md`)
 - Project Horizon: `long-lived`
 - Long-Term Knowledge Governance: `enabled`
 
@@ -132,5 +132,7 @@
 
 ## Related Documents
 
-- `docs/HarnessStack/temporary-<task>.md`
-- `docs/RepoMem/persist/version-plan.md`
+- `docs/HarnessStack/README.md` — one-time AI distillation source (~60-80 lines)
+- `docs/HarnessStack/_toUser/README.md` — full human-facing usage manual
+- `docs/HarnessStack/temporary-<task>.md` — task-level patch (when a task is in progress)
+- `docs/RepoMem/persist/version-plan.md` — factory-internal stack-evolution record
