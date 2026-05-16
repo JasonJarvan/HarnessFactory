@@ -74,14 +74,49 @@ The output is a long-term repository baseline and, when needed, a task-specific 
 
 ## Add-Only Principle
 
-- Once a method is activated for a project, it never deactivates. Upgrades are
-  always additions, never replacements.
-- Recipes follow the same rule via copy-on-write: extending a recipe means
-  publishing a new file whose layer set is a superset of the previous one.
-  The previous file is preserved.
+Add-only operates in two scopes with different strictness.
+
+### Target-Repo Scope (Strict)
+
+For a target repository operating with an activated HarnessStack, the
+guarantee is non-negotiable:
+
+- Once a method is activated for a project, it never deactivates. Upgrades
+  are always additions, never replacements.
+- Recipes are extended via copy-on-write: a new file whose layer set is a
+  superset of the previous one. The previous file is preserved.
 - A long-term contract upgrades by switching its `Recipe Reference` to a
   superset recipe; this is an extension event and does NOT trigger a full
   rewrite review.
+
+Target repos rely on this guarantee for stability. The composition rule in
+`references/selection-criteria.md § Add-Only Constraint On Composition`
+enforces the same invariants at activation time.
+
+### Factory-Internal Scope (Default + Declared Exception)
+
+For factory iteration on recipe and template content itself (e.g., editing
+Merge Gates rows, refactoring Cross-Layer Conflicts, removing an obsolete
+section, restructuring a template), add-only is a **strong default**, not
+an inviolable rule. Modifying or removing existing content is allowed
+when:
+
+- the modification yields a strictly cleaner contract (no compatibility
+  shim needed elsewhere), OR
+- an existing decision is genuinely wrong, not merely inconvenient, OR
+- affected target repos can be notified or migrated explicitly.
+
+When add-only is broken at factory scope, the change MUST be declared:
+
+- in the recipe's `Last Updated Because` entry (when editing a recipe);
+- in the commit message (always);
+- in `docs/RepoMem/persist/version-plan.md` when the change touches a
+  load-bearing rule that downstream agents may have memorized.
+
+Silent rewrites remain forbidden. Opacity is the failure mode, not
+modification itself. This factory-scope break-glass parallels
+`Break-Glass For Recipe Invariants` below — both default to deny, both
+unlock via explicit declaration.
 
 ## Composition Rule
 

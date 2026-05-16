@@ -79,6 +79,15 @@ last_reviewed_at: 2026-05-15
 - v0.4 候选：questionnaire 是否引入 `skill` / `method` 作为 type 枚举值
 - v0.4 候选：模板渲染半自动化（当前 `output-readme-template.md` / `to-user-readme-template.md` 手填 placeholder，无脚本）
 
+## v0.3.2 决策与改动
+
+- Add-Only Principle 分双 scope：
+  - **Target-Repo Scope（严格）**：目标仓库激活后，方法不脱活、recipe 升级走 copy-on-write、`Recipe Reference` 单行替换；非可破例（保持目标仓库的稳定性承诺）
+  - **Factory-Internal Scope（默认 + 显式破例）**：工厂内部对 recipe / 模板内容的修改/删除允许，条件是更干净的契约、既有决策确实有误，或可显式通知/迁移目标仓库；破例必须在 recipe 的 `Last Updated Because` + commit message + （触及 load-bearing 规则时）version-plan 中声明
+- 动机：v0.3.1 设计 v0.4 时发现，纯 add-only 会迫使 v0.4 把 burn 判据塞进 Task-End Disposition 新章节再 cross-ref 回 Merge Gates，而不是直接精修 Merge Gates。降级后保留了对目标仓库的承诺，又给工厂内部留出迭代空间
+- 与 `Break-Glass For Recipe Invariants` 同形态（默认 deny + 显式破例）
+- 改动文件：`harness-factory/SKILL.md § Add-Only Principle` 整段重写
+
 ## 未来考虑
 
 - 调研层的周期性 agent 化（v0.4+）
